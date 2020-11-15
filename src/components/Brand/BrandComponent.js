@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {GetAll,GetById,Trequest} from '../../api/apiRoutes';
 import {Form, FormGroup, Button, Spinner} from 'react-bootstrap';
 import {useForm} from '../../hooks/useForm';
@@ -58,14 +58,6 @@ export function GetBrandComponent(){
     )
 }
 
-export function GetItemBrandComponent(){
-    return (
-        <div>
-            
-        </div>
-    )
-}
-
 export function UpdateBrandComponent(){
     return (
         <div>
@@ -74,11 +66,45 @@ export function UpdateBrandComponent(){
     )
 }
 
-export function DeleteBrandComponent(){
+export function DeleteBrandComponent(props){
+
+    const {brand, action} = props;
+
+    const [brandInput, setBrandInput] = useState(brand);
+    const [action, setAction] = useState(action);
+    const [buttonName, setButtonName] = useState('');
+    const [inputEnabled, setInputEnabled] = useState(false);
+    const [action, setAction] = useState('');
+    const [ values, handleInputChange, reset ] = useForm(brandInput);
+    const {name} = values;
+
+    useEffect(() => {
+        handleScreenLoading(action);
+    }, [])
+
+    const handleScreenLoading = (action) => {
+
+        switch (acton) {
+            case 'D':
+                setInputEnabled(false);
+                setButtonName('Borrar');
+                setAction('delete');
+                break;
+            case 'U':
+                setInputEnabled(true);
+                setButtonName('Guardar');
+                setAction('update');
+                break;
+            default:
+                break;
+        }
+
+    }
+
     return (
-        <div>
-            
-        </div>
+        <Form>
+            <Form.Control value={name} onChange={handleInputChange} enabled={inputEnabled}/>
+        </Form>
     )
 }
 
