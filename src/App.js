@@ -1,16 +1,20 @@
-import { Navbar } from './components/NavBar';
 import { AppRouter } from './router/AppRouter';
-import {BasicLayOut} from './layout/BasicLayOut';
+import { BasicLayOut } from './layout/BasicLayOut';
+
+
 import './App.scss';
 
 function App() {
   return (
     <div>
       <AppRouter>
-      <BasicLayOut>
-      </BasicLayOut>
+        <BasicLayOut>
+          {/* <CarritoModal>
+
+        </CarritoModal> */}
+        </BasicLayOut>
       </AppRouter>
-    </div>    
+    </div>
   );
 }
 

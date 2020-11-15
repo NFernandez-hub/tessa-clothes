@@ -5,6 +5,8 @@ import {
     Route,
     Redirect
 } from "react-router-dom";
+import { CartCard } from "../components/CartCard";
+
 import { HomePage } from "../pages/HomePage";
 import { ProductsPage } from "../pages/ProductsPage";
 
@@ -19,7 +21,8 @@ export const AppRouter = (props) => {
             <div>
                 <Switch>
                     <Route exact path="/" component={HomePage} />
-                    <Route exact path="/products" component={ProductsPage} />
+                    <Route exact path="/products" component={ProductsPage} /> 
+                    <Route exact path="/cart" component={CartCard} />
                     <Redirect to="/" />
                 </Switch>
             </div>
