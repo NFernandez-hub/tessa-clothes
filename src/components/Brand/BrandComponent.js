@@ -51,22 +51,28 @@ export function BrandComponent() {
 }
 
 export function GetBrandComponent(){
+    
+    const [brands, setBrands] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    if(brands === []){
+        return <div><Spinner/></div>
+    }
+
     return (
         <div>
-            
+            {brands.map((item, index) => {
+                <div>
+                    <h4>item.nam</h4>
+                </div>
+            })}
         </div>
     )
 }
 
-export function UpdateBrandComponent(){
-    return (
-        <div>
-            
-        </div>
-    )
-}
+ 
 
-export function DeleteBrandComponent(props){
+export function ManageBrandComponent(props){
 
     const {brand, action} = props;
 
@@ -77,6 +83,7 @@ export function DeleteBrandComponent(props){
     const [action, setAction] = useState('');
     const [ values, handleInputChange, reset ] = useForm(brandInput);
     const {name} = values;
+
 
     useEffect(() => {
         handleScreenLoading(action);
@@ -103,7 +110,10 @@ export function DeleteBrandComponent(props){
 
     return (
         <Form>
-            <Form.Control value={name} onChange={handleInputChange} enabled={inputEnabled}/>
+            <Form.Control value={name} 
+            onChange={handleInputChange} 
+            enabled={inputEnabled}/>   
+            <Button>{buttonName}</Button>
         </Form>
     )
 }
