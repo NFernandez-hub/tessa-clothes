@@ -1,28 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Redirect
 } from "react-router-dom";
-import { CartCard } from "../components/CartCard";
-
 import { HomePage } from "../pages/HomePage";
+
 import { ProductsPage } from "../pages/ProductsPage";
 
 export const AppRouter = (props) => {
 
+    const [carrito, setCarrito] = useState([])
     const {children} = props;
+
+    const newChildren = React.cloneElement(children, {carrito, setCarrito})
 
     return (
         <div>
-        {children}
+        {newChildren}
         <Router>
             <div>
                 <Switch>
-                    <Route exact path="/" component={HomePage} />
-                    <Route exact path="/products" component={ProductsPage} /> 
-                    <Route exact path="/cart" component={CartCard} />
+                    <Route exact path="/" component={() => <HomePage />} />
+                    <Route exact path="/products" component={() => <ProductsPage cart={carrito} setCart={setCarrito}/>} /> 
+                    
                     <Redirect to="/" />
                 </Switch>
             </div>

@@ -23,11 +23,11 @@ export default function ProvinceForm() {
 
         console.log(response);
     }
-
-  
+      
     return (
         <div>
-            <input type='text' placeholder='Escriba una provincia' onChange={handleInputChange} value={description} name='description'></input>
+            <input type='text' placeholder='Escriba una provincia'
+            onChange={handleInputChange} value={description} name='description'></input>
             <button onClick={handleClick}>Crear</button>
         </div>
     )

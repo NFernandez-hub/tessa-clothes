@@ -1,16 +1,14 @@
 import { Navbar } from './../components/NavBar';
-import React from 'react'
-
 
 export function BasicLayOut(props) {
-    
-    const {children} = props;
-    
+
+    const { carrito, setCarrito } = props;
+
     return (
         <div>
-        <Navbar>
-        </Navbar>
-        {children}
+            <Navbar cart={carrito} setCart={setCarrito}>
+            </Navbar>
+            
         </div>
     )
 }

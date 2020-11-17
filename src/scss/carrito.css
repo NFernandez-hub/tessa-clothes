@@ -1,8 +1,6 @@
 .carrito-body {
-    background: #ddd;
-    
-    vertical-align: middle;
-    
+    background: #ddd;    
+    vertical-align: middle;    
     font-family: sans-serif;
     font-size: 0.8rem;
     font-weight: bold
@@ -15,7 +13,7 @@
 .card {
     margin: auto;
     max-width: 950px;
-    width: 90%;
+    /* width: 25%; */
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 1rem;
     border: transparent
@@ -136,14 +134,40 @@ input:focus::-webkit-input-placeholder {
 }
 
 .boton {
-    background-color: #000;
-    border-color: #000;
+    background-color:lightblue; /* Green */
+    border: none;
+    color: black;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px -10px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.boton2 {
+    background-color: lightblue; 
+    color: black; 
+    border: 2px solid #5e94a7;
+}
+
+.boton2:hover {
+    background-color:rgb(121, 121, 226);
     color: white;
-    width: 100%;
-    font-size: 0.7rem;
-    margin-top: 4vh;
-    padding: 1vh;
-    border-radius: 0
+}
+
+.boton3 {
+    background-color:blue; 
+    border: 2px solid #5e94a7;
+    color: white; 
+    margin: 4px 20px;    
+}
+
+.boton3:hover {
+    background-color:rgb(121, 121, 226);
+    color: white;
 }
 
 .boton:focus {
@@ -178,4 +202,33 @@ a:hover {
 
 .color{
     color: black;
+}
+
+.ReactModalPortal > div{
+    opacity: 0;
+}
+
+.ReactModalPortal .ReactModal__Overlay {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: opacity .2s ease-in-out;
+    z-index: 999;
+}
+
+.modal-fondo {
+    background-color: rgba(0, 0, 0, 0.3);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    position: fixed;
+}
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+    opacity: 1;
+}
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+    opacity: 0;
 }

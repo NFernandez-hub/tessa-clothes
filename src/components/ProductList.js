@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Product } from '../components/Product';
 import { GetAll } from '../api/apiRoutes';
+import { Spinner , CardDeck as Container, Col, Row } from 'react-bootstrap';
 
 
-export default function ProductList() {
+export default function ProductList(props) {
 
-    const province = 'Province';
+    const product = 'Product';
+
+    const {cart, setCart} = props;
 
     const [productList, setProductList] = useState(null);
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        
+
         getProducts();
 
     }, [])
 
     const getProducts = async () => {
         setLoading(true);
-        var result = await GetAll(province);
+        var result = await GetAll(product);
+        console.log(result)
         if (result !== null) {
             setProductList(result);
             setLoading(false);
@@ -26,16 +30,24 @@ export default function ProductList() {
     }
 
     if (loading) {
-        return <h1>Spinner</h1>
+        return <Spinner animation="border" variant="secondary" />
     }
 
     return (
-        <div>
-            {
-                productList?.forEach((product, index) => {
-                    <Product product={product} key={index} />
-                })
-            }
-        </div>
+        <Container style = {{justifyContent:'center'}}>
+            <Row style = {{justifyContent:'center'}}>
+
+                {
+                    productList?.map((product, index) => {
+                        return (<Col key={index} >
+                            <Product product={product} cart={cart} setCart={setCart} />
+                        </Col>)
+
+                    })
+                }
+
+            </Row>
+        </Container>
+
     )
 }

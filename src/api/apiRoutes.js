@@ -26,7 +26,10 @@ function Trequest(controller, requestType, entity) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(entity)
+
     }
+
+    // console.log(entity)
 
     return fetch(url, request).then(result => result).then(resp => resp.json())
         .catch(err => console.log(err));
