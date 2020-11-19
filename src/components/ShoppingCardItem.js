@@ -1,22 +1,10 @@
-import React , { useState } from "react"
+import React, { useState } from "react"
 
 export const ShoppingCardItem = (props) => {
-    const { product } = props;
-    const [productQt, setProductQt] = useState(1);
+    const { product, setTotalAmount, totalAmount } = props;
+    const [productQt, setProductQt] = useState(product.qty);
 
-    console.log(product);
-    console.log(productQt)
 
-    const setQty = () => {
-        setProductQt(productQt + 1);
-    }
-
-    const removeQty = () => {
-        if (productQt > 1) {
-            setProductQt(productQt - 1);
-        }
-    }
-    
     return (
         <div className="row border-top border-bottom">
             <div className="row main align-items-center">
@@ -25,9 +13,12 @@ export const ShoppingCardItem = (props) => {
                     <div className="row ">{product.name}</div>
                     <div className="row text-muted">{product.description}</div>
                 </div>
-                <div className="col"> <button onClick={removeQty}>-</button><span> {productQt} </span><button onClick={setQty}>+</button> </div>
-                <div className="col">{product.price1*productQt}<span className="close">&#10005;</span></div>
+                <div className="col-2">
+                    <div className="row text-muted">{productQt}</div>
+                </div>
+                <div className="col">${product.price1 * productQt}<span className="close">&#10005;</span></div>
             </div>
         </div>);
+
 }
 

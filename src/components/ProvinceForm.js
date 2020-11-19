@@ -21,7 +21,7 @@ export default function ProvinceForm() {
             description
         } );
 
-        console.log(response);
+        // console.log(response);
     }
       
     return (

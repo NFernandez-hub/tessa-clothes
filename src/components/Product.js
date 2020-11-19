@@ -1,18 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import { Trequest } from '../api/apiRoutes';
 
 export const Product = (props) => {
 
     const { product, cart, setCart } = props;
 
+    product.qty = 1;
 
     const handleAddToCart = (e) => {
+
+        if (cart.length === 0) {
+            setCart([...cart, product]);
+        } else {
+
+            var find = cart.find(x => x.id == product.id)
+
+            if (find === undefined) {
+                setCart([...cart, product]);
+            } else {
+                find.qty += 1;
+            }
+
+        }
+    }
+
+    const controller = 'Product';
+    const request = 'delete'
+
+    const handleDelete = async (e) => {
+
         e.preventDefault();
-        setCart([...cart,product]);
+
+        var response = Trequest(controller, request, { id: product.id })
+
+        window.location.reload()
     }
 
     return (
+
         <div>
-            <div className="container mt-5 mb-5 d-flex justify-content-center align-items-center">
+            <div className="container mt-5 mb-5 justify-content-center align-items-center">
                 <div className="card productcard">
                     <div className="inner-card"> <img src="https://i.imgur.com/ba3tvGm.jpg" alt="" className="img img-fluid rounded" />
                         <div className="card-body">
@@ -25,12 +53,14 @@ export const Product = (props) => {
 
                         <div className="card-footer productcard-footer btncont">
 
-                            <h4 className="price productprice">{product.price1}</h4>
+                            <h4 className="price productprice">${product.price1}</h4>
 
                             <div className="row btncont">
-                                <button className="btn derecha" onClick={(e) => handleAddToCart(e)}>Añadir al carrito</button>
-                                <button className="btn "><i className="fa fa-search" aria-hidden="true"></i>
-                                </button>
+                                <button className="btn btn1 derecha" onClick={(e) => handleAddToCart(e)}>Añadir al carrito</button>
+                            </div>
+
+                            <div className="row btncont">
+                                <button className="btn btn1 derecha" onClick={(e) => handleDelete(e)}>Eliminar</button>
                             </div>
                         </div>
 

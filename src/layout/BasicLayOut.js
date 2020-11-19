@@ -1,3 +1,4 @@
+import { WhatsAppButton } from '../components/WhatsAppButton';
 import { Navbar } from './../components/NavBar';
 
 export function BasicLayOut(props) {
@@ -8,7 +9,8 @@ export function BasicLayOut(props) {
         <div>
             <Navbar cart={carrito} setCart={setCarrito}>
             </Navbar>
-            
+            <WhatsAppButton className="wppbtn">
+                </WhatsAppButton>           
         </div>
     )
 }

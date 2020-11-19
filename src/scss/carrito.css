@@ -3,8 +3,8 @@
     vertical-align: middle;    
     font-family: sans-serif;
     font-size: 0.8rem;
-    font-weight: bold
-}
+    font-weight: bold;
+    background-color: transparent;}
 
 .title {
     margin-bottom: 5vh
@@ -223,6 +223,7 @@ a:hover {
     right: 0;
     top: 0;
     position: fixed;
+    border: violet;
 }
 
 .ReactModalPortal .ReactModal__Overlay--after-open {

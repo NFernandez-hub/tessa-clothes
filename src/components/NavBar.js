@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { CartCard } from './CartCard';
 import ProductFrom from './ProductFrom';
+import ClientForm from './ClientForm';
 
 const customStyles = {
     content: {
@@ -23,22 +24,33 @@ export const Navbar = (props) => {
 
     const [openP, setOpenP] = useState(false)
 
+    const[openC, setOpenC] = useState(false)
+
     const closeModal = () => {
         setOpen(false);
-        setOpenP(false)
+        setOpenP(false);
+        setOpenC(false)
     }
 
     return (
-        <div className="navbar navbar-ligth bg-dark mb-4">
-            <span className="navbar-brand">
-                {/* <a href='home'>Home</a> */}
-                <a href='products'>Store</a>
-            </span>
+        <div className="navbar header mb-4">
+          
 
-            <button className="btn btn-outline-warning" onClick={() => setOpen(true)}>
+          <div className="navbar-brand ">
+                {/* <a href='home'>Home</a> */}
+                <a href='products'>         
+                 <img class="logo-container" alt="Tessa Intimates" src="https://d26lpennugtm8s.cloudfront.net/stores/001/224/103/themes/common/logo-860990000-1596415832-cc0ef48153f777c6d2835febb903bfc91596415832-320-0.png?0" />
+                </a>
+            </div>
+
+          
+           
+
+            <div className="options">
+            <span className="btn option" onClick={() => setOpen(true)}>
                 <i className="fas fa-cart-plus"></i>
                 <span> Cart</span>
-            </button>
+            </span>
 
             <Modal
                 isOpen={open}
@@ -52,10 +64,10 @@ export const Navbar = (props) => {
                 <CartCard cart={cart} setCart={setCart} />
             </Modal>
 
-            <button className="btn btn-outline-danger" onClick={() => setOpenP(true)}>
-                <i className="fas fa-cart-plus"></i>
+            <span className="btn  option" onClick={() => setOpenP(true)}>
+                <i className="fas fa-folder-plus"></i>
                 <span> Add Product</span>
-            </button>
+            </span>
 
             <Modal
                 isOpen={openP}
@@ -69,6 +81,23 @@ export const Navbar = (props) => {
                 <ProductFrom/>
             </Modal>
 
+            <span className="btn option" onClick={() => setOpenC(true)}>
+                <i className="fas fa-user-plus"></i>
+                <span> Add Client</span>
+            </span>
+
+            <Modal
+                isOpen={openC}
+                //   onAfterOpen={afterOpenModal}
+                onRequestClose={closeModal}
+                style={customStyles}
+                closeTimeoutMS={200}
+                overlayClassName="modal-fondo"
+                contentLabel="Example Modal"
+            >
+                <ClientForm/>
+            </Modal>
+            </div>
 
         </div>
     )

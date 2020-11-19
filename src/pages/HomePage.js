@@ -1,16 +1,15 @@
-import React from 'react';
-import ProductFrom from '../components/ProductFrom';
+// import React from 'react';
+// import ClientForm from '../components/ClientForm';
+// import { Factura } from '../components/Factura';
 
-import ProvinceForm from '../components/ProvinceForm';
-import '../scss/carrito.css'
+// import '../scss/carrito.css'
 
 
 
-export const HomePage = () => {
-    return (
-        <div className="App">
-            <ProductFrom/>            
-        </div>
-
-    )
-}
+// export const HomePage = () => {
+//     return (
+//         <div>
+            
+//         </div>
+//     )
+// }

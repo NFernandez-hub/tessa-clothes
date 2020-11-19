@@ -1,6 +1,13 @@
+$font-family: 'Roboto',
+Helvetica,
+sans-serif;
+
 .App {
   text-align: center;
+  margin: 0%;
+  padding: 0%;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -12,6 +19,23 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+
+body{
+  background-color: #f2f2f2;
+  font-family: $font-family;
+    color: #000000;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: #f2f2f2;
+}
+
+
+
 
 .App-header {
   background-color: #282c34;
@@ -25,7 +49,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: rgb(195,143,255);
 }
 
 @keyframes App-logo-spin {
@@ -51,4 +75,251 @@
 
 .derecha{
   float: right;
+}
+
+
+
+//////////////////////////////////////////////////////CARD///////////////////////////////////////////////////
+
+.btn1:focus {
+  color: #fff;
+  background-color:  rgb(195,143,255);
+  box-shadow: none
+
+}
+
+.btn1 {
+  background: transparent;
+  border: 2px solid  rgb(195,143,255);
+  color:rgb(114, 73, 143);
+
+  text-align: center;
+  margin-top: 5px;
+  outline:none !important;
+
+}
+
+.btncont {
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.btn1:focus {
+  box-shadow: none;
+}
+
+.btn1:hover {
+  background:  rgb(195,143,255);;
+  color: #fff
+}
+.productcard {
+  background-color: #fff;
+  //  width: 400px;
+  padding: 10px;
+  border: transparent;
+  width: 200px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+
+.inner-card {
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px
+}
+
+
+.productprice {
+  text-align: center;
+  color: #747474;
+  font-weight: lighter;
+  margin-top: 2px;
+}
+
+.productcard-footer {
+  margin: 0%;
+  padding: 0%;
+  background-color: transparent;
+}
+
+.productcard-title {
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.productcard-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.img {
+  height: auto;
+  width:60%;
+  text-align: center;
+}
+
+.align {
+  margin-left: 10px;
+}
+
+//////////////////////////////////////////////////////header///////////////////////////////////////////////////
+
+.header {
+  padding-bottom: 0px;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+/*   background: rgb(195,143,255);
+  background: linear-gradient(90deg, rgba(195,143,255,1) 37%, rgba(90,167,228,1) 100%); */
+  background: rgb(74,1,126);
+  background: linear-gradient(90deg, rgba(74,1,126,1) 0%, rgba(118,100,162,1) 57%, rgba(174,193,191,1) 100%);
+  .logo-container {
+      height: 100%;
+      width: 300px;
+      padding: 10px;
+      display: inline-block;
+      font-weight: 600;
+      text-align: left;
+      margin-bottom: 20px;
+  }
+  .options {
+      width: 70%;
+      margin-bottom: 10px;
+
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .option {
+          padding: 10px 15px;
+          color: white;
+          font-size: 16.8px;
+          letter-spacing: 1px;
+          text-align: center;
+          text-transform: uppercase;
+          line-height: 35px;
+          gap: normal;
+          border-radius:10px;
+          outline:none !important;      }
+  }
+  .option:hover {
+    transform: scale(1.05);
+}
+.optionsIcon {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .option {
+        padding: 10px 15px;
+        color: white;
+        font-size: 16.8px;
+        letter-spacing: 1px;
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 35px;
+        gap: normal;
+        text-decoration: none;
+    }
+}
+}
+
+.cart-icon {
+  font-size: 28.8px;
+  display: inline;
+  line-height: 28.8px;
+  gap: normal;
+}
+
+.user-icon {
+  font-size: 14px;
+  display: inline-block;
+  line-height: 21px;
+  gap: normal;
+}
+
+.align
+{
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.justify{
+  margin-top: 2%;
+  margin-bottom: 0%;
+}
+
+////////////////////cart
+
+.right{
+ margin-right: 170px;
+}
+
+
+/////////////////general
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+//homepage
+
+.imagen{
+  width:auto;
+  margin-bottom: 2%;
+  padding-left: 0%;
+  padding: 0%;
+}
+
+///MODAL
+
+.labelInvoice{
+  font-weight: bold;
+  align-content: center;
+  text-align: center;
+
+}
+.label2Invoice{
+  margin-left: 2%;
+}
+
+//WhatsApp
+
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+
+.my-float {
+  margin-top: 16px;
+}
+
+.wppbtn {
+  position: fixed;
+  float: left;
+  display: block;
 }

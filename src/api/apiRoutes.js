@@ -15,6 +15,12 @@ function GetAll(controller) {
 }
 
 function Trequest(controller, requestType, entity) {
+
+
+    console.log(requestType)
+    console.log(entity)
+
+
     const url = `${endPoint}${controller}/${requestType}`
 
     const method = handleMethod(requestType);
@@ -28,8 +34,6 @@ function Trequest(controller, requestType, entity) {
         body: JSON.stringify(entity)
 
     }
-
-    // console.log(entity)
 
     return fetch(url, request).then(result => result).then(resp => resp.json())
         .catch(err => console.log(err));

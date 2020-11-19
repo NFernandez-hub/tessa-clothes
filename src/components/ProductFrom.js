@@ -26,7 +26,7 @@ export default function ProductFrom() {
 
     const handleClick = async () => {
 
-        var precio = parseInt(price1, 10);
+        var precio = parseFloat(price1, 10);
 
         var response = await Trequest(controller, request, {
             code,
@@ -41,13 +41,12 @@ export default function ProductFrom() {
         });
 
         console.log(response)
-        console.log(precio)
     }
 
     return (
         <Form>
             <Form.Group>
-                <Form.Label>Codigo: numerico</Form.Label>
+                <Form.Label>Codigo</Form.Label>
                 <Form.Control type="number" placeholder="Ingrese el codigo del Articulo" onChange={handleInputChange}
                     value={code} name='code' />
             </Form.Group>
@@ -60,18 +59,19 @@ export default function ProductFrom() {
 
             <Form.Group controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Descripcion</Form.Label>
-                <Form.Control as="textarea" rows={3} onChange={handleInputChange} name="description" />
+                <Form.Control as="textarea" rows={3} onChange={handleInputChange} value={description}
+                    name="description" />
             </Form.Group>
 
             <Form.Group>
-                <Form.Label>Precio: numerico</Form.Label>
+                <Form.Label>Precio</Form.Label>
                 <Form.Control type="number" placeholder="Ingrese el precio del Articulo" onChange={handleInputChange}
                     value={price1} name='price1' />
-            </Form.Group>            
+            </Form.Group>
 
-            <Button className="boton boton3" onClick={handleClick} href="products">
+            <button className="btn btn1 derecha" onClick={handleClick}>
                 Crear Articulo
-            </Button>
+            </button>
         </Form>
     )
 }

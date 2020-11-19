@@ -22,7 +22,7 @@ export default function ProductList(props) {
     const getProducts = async () => {
         setLoading(true);
         var result = await GetAll(product);
-        console.log(result)
+     
         if (result !== null) {
             setProductList(result);
             setLoading(false);
