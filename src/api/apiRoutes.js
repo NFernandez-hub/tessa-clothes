@@ -3,8 +3,12 @@ import { endPoint } from './../utils/apiEndPiont'
 function GetById(controller, id) {
     const url = `${endPoint}${controller}/getbyid?id=${id}`
 
+    console.log(id)
+
     return fetch(url).then(result => result).then(res => res.json())
         .catch(err => console.log(err));
+
+    
 }
 
 function GetAll(controller) {

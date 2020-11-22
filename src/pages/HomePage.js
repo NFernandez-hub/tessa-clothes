@@ -1,15 +1,10 @@
-// import React from 'react';
-// import ClientForm from '../components/ClientForm';
-// import { Factura } from '../components/Factura';
-
-// import '../scss/carrito.css'
+import React from 'react';
 
 
-
-// export const HomePage = () => {
-//     return (
-//         <div>
+export const HomePage = () => {
+    return (
+        <div>
             
-//         </div>
-//     )
-// }
+        </div>
+    )
+}

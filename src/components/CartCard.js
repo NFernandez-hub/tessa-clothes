@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 
 import '../scss/carrito.css'
 import { PagoModal } from './PagoModal';
-import { Button } from 'react-bootstrap';
+
 import { GetAll, Trequest } from '../api/apiRoutes';
 
 const customStyles = {

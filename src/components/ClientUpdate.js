@@ -3,36 +3,35 @@ import { Form } from 'react-bootstrap';
 import { Trequest } from '../api/apiRoutes';
 import { useForm } from '../hooks/useForm';
 
-import '../scss/card.scss'
+export function ClientUpdate(props) {
 
-export default function ClientForm() {
+    const { client} = props;
+
+    const controller = "Client";
+    const request = 'update';
 
     const initialClient = {
-        name: "",
-        lastName: "",
-        dni: 0,
-        cuil: 0,
-        cellPhone: 0,
-        email: "",
-        birthDate: Date.now()
+        name: client.name,
+        lastName: client.lastName,
+        dni: client.dni,
+        cuil: client.cuil,
+        cellPhone: client.cellPhone,
+        email: client.email,
+        birthDate: client.birthDate
     }
-
-    const controller = 'Client';
-    const request = 'create';
 
     const [values, handleInputChange] = useForm(initialClient);
 
-    const { name, lastName, dni, cuil, cellPhone, email, birthDate } = values;
+    const {name, lastName, dni, cuil, cellPhone, email, birthDate} = values;
 
-    const handleClick = async (e) => {
-
-        e.preventDefault();
+    const handleClick = async () => {
 
         var parseDni = parseInt(dni, 10);
         var parseCuil = parseInt(cuil, 10);
         var parseCell = parseInt(cellPhone, 10);
 
         var response = await Trequest(controller, request, {
+            id: client.id,
             name,
             lastName,
             dni: parseDni,
@@ -44,11 +43,10 @@ export default function ClientForm() {
     }
 
     return (
-
-        <Form >
+        <Form>
             <div className="col-md-8">
 
-                <Form.Group>
+                <Form.Group >
 
                     <Form.Label>Nombre</Form.Label>
 
@@ -74,8 +72,8 @@ export default function ClientForm() {
 
             </div>
 
-            <hr/>
-            
+            <hr />
+
             <div className="row ">
                 <div>
 
@@ -110,8 +108,8 @@ export default function ClientForm() {
                 </div>
             </div>
 
-            <button className="btn btn1" onClick={(e) => handleClick(e)}>
-                Crear Cliente
+            <button className="btn btn1 derecha" onClick={(e) => handleClick(e)}>
+                Modificar Cliente
             </button>
 
         </Form>

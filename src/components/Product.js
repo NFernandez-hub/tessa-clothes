@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import 'react-toastify/dist/ReactToastify.css';
-import { Trequest } from '../api/apiRoutes';
+import React from 'react';
 
 export const Product = (props) => {
-
+    
     const { product, cart, setCart } = props;
 
     product.qty = 1;
@@ -14,7 +12,7 @@ export const Product = (props) => {
             setCart([...cart, product]);
         } else {
 
-            var find = cart.find(x => x.id == product.id)
+            var find = cart.find(x => x.id === product.id)
 
             if (find === undefined) {
                 setCart([...cart, product]);
@@ -23,18 +21,6 @@ export const Product = (props) => {
             }
 
         }
-    }
-
-    const controller = 'Product';
-    const request = 'delete'
-
-    const handleDelete = async (e) => {
-
-        e.preventDefault();
-
-        var response = Trequest(controller, request, { id: product.id })
-
-        window.location.reload()
     }
 
     return (
@@ -57,10 +43,6 @@ export const Product = (props) => {
 
                             <div className="row btncont">
                                 <button className="btn btn1 derecha" onClick={(e) => handleAddToCart(e)}>Añadir al carrito</button>
-                            </div>
-
-                            <div className="row btncont">
-                                <button className="btn btn1 derecha" onClick={(e) => handleDelete(e)}>Eliminar</button>
                             </div>
                         </div>
 
