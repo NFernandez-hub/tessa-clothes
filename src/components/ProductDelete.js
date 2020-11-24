@@ -43,7 +43,7 @@ export default function ProductDelete(props) {
 
                 <Form.Group>
                     <Form.Label>Stock Inicial</Form.Label>
-                    <Form.Control type="number" value={product.stock} readOnly/>
+                    <Form.Control type="number" value={product.stock1} readOnly/>
                 </Form.Group>
 
                 <button className="btn btn1 derecha" onClick={handleClick}>

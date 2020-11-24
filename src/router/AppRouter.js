@@ -9,6 +9,7 @@ import ProductTableList from "../components/ProductTableList";
 
 import { ClientsPage } from "../pages/ClientsPage";
 import { ProductsPage } from "../pages/ProductsPage";
+import { TableImagePage } from "../pages/TableImagePage";
 
 export const AppRouter = (props) => {
 
@@ -26,7 +27,7 @@ export const AppRouter = (props) => {
                         <Route exact path="/productsList" component={() => <ProductTableList />} />
                         <Route exact path="/clients" component={() => <ClientsPage />} />
                         <Route exact path="/products" component={() => <ProductsPage cart={carrito} setCart={setCarrito} />} />
-                        
+                        <Route exact path="/tableImage" component={() => <TableImagePage/>} />
                         <Redirect to="/" />
                     </Switch>
                 </div>

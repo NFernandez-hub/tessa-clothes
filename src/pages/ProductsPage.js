@@ -3,6 +3,7 @@ import { Container, Row } from 'react-bootstrap';
 import ProductList from '../components/ProductList'
 import foto from './../fotoheader.png';
 import Image from 'react-bootstrap/Image';
+import { Footer } from '../components/Footer';
 
 export const ProductsPage = (props) => {
 
@@ -26,6 +27,7 @@ export const ProductsPage = (props) => {
                 </Row>
 
             </Container>
+            <Footer></Footer>
         </div>
     )
 }

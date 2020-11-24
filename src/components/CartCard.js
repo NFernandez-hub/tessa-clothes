@@ -50,7 +50,7 @@ export const CartCard = (props) => {
         cart.forEach(async item => {
 
             var response = await Trequest(controllerS, requestS, {
-                
+
                 id: item.id,
                 erasedState: item.erasedState,
                 code: item.code,
@@ -63,7 +63,7 @@ export const CartCard = (props) => {
                 price1: item.price1,
                 brandId: item.brandId,
                 categoryId: item.categoryId,
-                stock: item.stock - item.qty
+                stock1: item.stock1 - item.qty
             })
 
         })
@@ -95,7 +95,7 @@ export const CartCard = (props) => {
     const handleFinisBuy = async () => {
 
         setStock();
-        
+
         //POST de la facutra
         var precioFinal = parseFloat(totalAmount, 10);
 

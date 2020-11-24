@@ -11,7 +11,7 @@ export const Product = (props) => {
 
     const handleAddToCart = (e) => {
 
-        if (product.stock >= 1) {
+        if (product.stock1 >= 1) {
 
             toast('El articulo fue añadido al carrito.', {
                 position: "top-center",

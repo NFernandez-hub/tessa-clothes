@@ -14,7 +14,8 @@ export default function ProductFrom() {
         slow: true,
         price1: 0,
         brandId: 1,
-        categoryId: 1
+        categoryId: 1,
+        stock1:0
     }
 
     const controller = 'Product';
@@ -22,12 +23,12 @@ export default function ProductFrom() {
 
     const [values, handleInputChange] = useForm(initialProduct);
 
-    const { code, name, description, price1, stock } = values;
+    const { code, name, description, price1, stock1 } = values;
 
     const handleClick = async () => {
 
         var precio = parseFloat(price1, 10);
-        var stockInicial = parseFloat(stock, 10)
+        var stockInicial = parseFloat(stock1, 10)
 
         var response = await Trequest(controller, request, {
             code,
@@ -39,7 +40,7 @@ export default function ProductFrom() {
             price1: precio,
             brandId: 1,
             categoryId: 1,
-            stock: stockInicial
+            stock1: stockInicial
         });
 
         console.log(response)
@@ -74,7 +75,7 @@ export default function ProductFrom() {
             <Form.Group>
                 <Form.Label>Stock Inicial</Form.Label>
                 <Form.Control type="number" placeholder="Stock Inicial del articulo" onChange={handleInputChange}
-                    value={stock} name='stock' />
+                    value={stock1} name='stock1' />
             </Form.Group>
 
             <button className="btn btn1 derecha" onClick={handleClick}>

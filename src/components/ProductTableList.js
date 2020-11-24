@@ -103,7 +103,7 @@ export default function ProductTableList() {
                                     <th>{item.name}</th>
                                     <th>{item.description}</th>
                                     <th>{item.price1}</th>
-                                    <th>{item.stock}</th>
+                                    <th>{item.stock1}</th>
                                 </tr>
                             )
                         })

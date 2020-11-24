@@ -20,17 +20,17 @@ export function ProductUpdate(props) {
         price1: product.price1,
         brandId: 1,
         categoryId: 1,
-        stock: product.stock
+        stock1: product.stock1
     }
 
     const [values, handleInputChange] = useForm(initialProduct);
 
-    const { code, name, description, price1, stock } = values;
+    const { code, name, description, price1, stock1 } = values;
 
     const handleClick = async () => {
 
         var precio = parseFloat(price1, 10);
-        var stockParse = parseFloat(stock, 10);
+        var stockParse = parseFloat(stock1, 10);
 
         var response = await Trequest(controller, request, {
 
@@ -46,7 +46,7 @@ export function ProductUpdate(props) {
             price1: precio,
             brandId: 1,
             categoryId: 1,
-            stock: stockParse
+            stock1: stockParse
 
         });
 
@@ -82,7 +82,7 @@ export function ProductUpdate(props) {
             <Form.Group>
                 <Form.Label>Stock</Form.Label>
                 <Form.Control type="number" placeholder="Stock Inicial del articulo" onChange={handleInputChange}
-                    value={stock} name='stock' />
+                    value={stock1} name='stock1' />
             </Form.Group>
 
             <button className="btn btn1 derecha" onClick={handleClick}>

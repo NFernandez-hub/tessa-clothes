@@ -51,11 +51,16 @@ export const ReponsiveNavbar = (props) => {
           </Modal>
 
           <Nav.Link className="btn  option" href="productsList">
-            Product
-      </Nav.Link>
+            Productos
+          </Nav.Link>
 
           <Nav.Link className="btn option" href="clients">
-            Clients      </Nav.Link>
+            Clientes      
+          </Nav.Link>
+
+          <Nav.Link className="btn option" href="tableImage">
+            Table de Talles      
+          </Nav.Link>
 
         </Nav>
       </Navbar.Collapse>

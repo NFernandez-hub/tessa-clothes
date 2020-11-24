@@ -19,7 +19,8 @@ export default function ProductList(props) {
 
     }, [])
 
-    const getProducts = async () => {
+    const getProducts = async (e) => {
+        
         setLoading(true);
         var result = await GetAll(product);
      
