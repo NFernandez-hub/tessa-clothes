@@ -5,7 +5,7 @@ import { useForm } from '../hooks/useForm';
 
 export function ClientUpdate(props) {
 
-    const { client} = props;
+    const { client } = props;
 
     const controller = "Client";
     const request = 'update';
@@ -22,7 +22,7 @@ export function ClientUpdate(props) {
 
     const [values, handleInputChange] = useForm(initialClient);
 
-    const {name, lastName, dni, cuil, cellPhone, email, birthDate} = values;
+    const { name, lastName, dni, cuil, cellPhone, email, birthDate } = values;
 
     const handleClick = async () => {
 
@@ -41,7 +41,7 @@ export function ClientUpdate(props) {
             birthDate
         });
     }
-
+    
     return (
         <Form>
             <div className="col-md-8">
@@ -71,9 +71,7 @@ export function ClientUpdate(props) {
                 </Form.Group>
 
             </div>
-
             <hr />
-
             <div className="row ">
                 <div>
 
@@ -111,7 +109,6 @@ export function ClientUpdate(props) {
             <button className="btn btn1 derecha" onClick={(e) => handleClick(e)}>
                 Modificar Cliente
             </button>
-
         </Form>
     )
 }

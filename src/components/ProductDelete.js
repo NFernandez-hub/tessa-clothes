@@ -23,22 +23,27 @@ export default function ProductDelete(props) {
             <Form>
                 <Form.Group>
                     <Form.Label>Codigo</Form.Label>
-                    <Form.Control type="number" value={product.code} readOnly/>
+                    <Form.Control type="number" value={product.code} readOnly />
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Nombre</Form.Label>
-                    <Form.Control type="text" value={product.name} readOnly/>
+                    <Form.Control type="text" value={product.name} readOnly />
                 </Form.Group>
 
                 <Form.Group controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Descripcion</Form.Label>
-                    <Form.Control as="textarea" rows={3}value={product.description} readOnly/>
+                    <Form.Control as="textarea" rows={3} value={product.description} readOnly />
                 </Form.Group>
 
                 <Form.Group>
                     <Form.Label>Precio</Form.Label>
-                    <Form.Control type="number" value={product.price1} readOnly/>
+                    <Form.Control type="number" value={product.price1} readOnly />
+                </Form.Group>
+
+                <Form.Group>
+                    <Form.Label>Stock Inicial</Form.Label>
+                    <Form.Control type="number" value={product.stock} readOnly/>
                 </Form.Group>
 
                 <button className="btn btn1 derecha" onClick={handleClick}>

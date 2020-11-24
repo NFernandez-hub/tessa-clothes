@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button as Spinner, Table } from 'react-bootstrap'
+import { Button as Spinner, Container, Table } from 'react-bootstrap'
 import { GetAll, } from '../api/apiRoutes';
 import ClientForm from './ClientForm';
 import Modal from 'react-modal';
@@ -62,86 +62,89 @@ export default function ClientList() {
         setOpenD(true)
         setSingleClient(a)
     }
-
-    if (loading) {
-        return <Spinner animation="border" variant="secondary" />
-    }
-
+    
     return (
+        <div>
+            <Container>
+                <br></br>
+                <Table responsive striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th className="align">
+                                <span className="btn btn1" onClick={() => setOpen(true)}> <i className="fas fa-user-plus"></i></span>
+                               
+                            </th>
+                            <th></th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Dni</th>
+                            <th>Email</th>
+                            <th>Numero Celular</th>
 
-        <Table striped bordered hover>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Dni</th>
-                    <th>Email</th>
-                    <th>Numero Celular</th>
+                            <Modal
+                                isOpen={open}
+                                //   onAfterOpen={afterOpenModal}
+                                onRequestClose={closeModal}
+                                style={customStyles}
+                                closeTimeoutMS={200}
+                                overlayClassName="modal-fondo"
+                                contentLabel="Example Modal"
+                            >
+                                <ClientForm />
+                            </Modal>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            clientList?.map((item, index) => {
+                                return (
+                                    <tr key={index}>
 
-                    <td className="btn btn1" onClick={() => setOpen(true)}>
-                        <i className="fas fa-user-plus"></i>
-                    </td>
+                                        <th  className="align" > <span className="btn btn1 " onClick={() => setOpenWithClient(item)}> <i className="far fa-edit"></i> </span> </th>
+                                        <th className="align" > <span className="btn btn1 " onClick={() => setOpenDelete(item)} ><i className="far fa-trash-alt"></i></span>  </th>
 
-                    <Modal
-                        isOpen={open}
-                        //   onAfterOpen={afterOpenModal}
-                        onRequestClose={closeModal}
-                        style={customStyles}
-                        closeTimeoutMS={200}
-                        overlayClassName="modal-fondo"
-                        contentLabel="Example Modal"
-                    >
-                        <ClientForm />
-                    </Modal>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    clientList?.map((item, index) => {
-                        return (
-                            <tr key={index}>
-                                <th>#</th>
-                                <th>{item.name}</th>
-                                <th>{item.lastName}</th>
-                                <th>{item.dni}</th>
-                                <th>{item.email}</th>
-                                <th>{item.cellPhone}</th>
+                                        <th>{item.name}</th>
+                                        <th>{item.lastName}</th>
+                                        <th>{item.dni}</th>
+                                        <th>{item.email}</th>
+                                        <th>{item.cellPhone}</th>
+                                    </tr>
+                                )
+                            })
+                        }
 
-                                <td className="btn btn1 " onClick={() => setOpenWithClient(item)}> Modificar </td>
-                                <td className="btn btn1 " onClick={() => setOpenDelete(item)}> Eliminar </td>
-                            </tr>
-                        )
-                    })
-                }
+                        <Modal
+                            isOpen={openD}
+                            //   onAfterOpen={afterOpenModal}
+                            onRequestClose={closeModal}
+                            style={customStyles}
+                            closeTimeoutMS={200}
+                            overlayClassName="modal-fondo"
+                            contentLabel="Example Modal"
+                        >
+                            <ClientDelete client={singleClient} />
+                        </Modal>
 
-                <Modal
-                    isOpen={openD}
-                    //   onAfterOpen={afterOpenModal}
-                    onRequestClose={closeModal}
-                    style={customStyles}
-                    closeTimeoutMS={200}
-                    overlayClassName="modal-fondo"
-                    contentLabel="Example Modal"
-                >
-                    <ClientDelete client={singleClient} />
-                </Modal>
+                        <Modal
+                            isOpen={openM}
+                            //   onAfterOpen={afterOpenModal}
+                            onRequestClose={closeModal}
+                            style={customStyles}
+                            closeTimeoutMS={200}
+                            overlayClassName="modal-fondo"
+                            contentLabel="Example Modal"
+                        >
+                            <ClientUpdate client={singleClient} />
+                        </Modal>
 
-                <Modal
-                    isOpen={openM}
-                    //   onAfterOpen={afterOpenModal}
-                    onRequestClose={closeModal}
-                    style={customStyles}
-                    closeTimeoutMS={200}
-                    overlayClassName="modal-fondo"
-                    contentLabel="Example Modal"
-                >
-                    <ClientUpdate client={singleClient} />
-                </Modal>
+                    </tbody>
 
-            </tbody>
+                </Table>
+            </Container>
 
-        </Table>
+        </div>
+
+
 
 
     )

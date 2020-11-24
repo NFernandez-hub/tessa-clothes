@@ -22,8 +22,8 @@ export const PagoModal = () => {
     if (pago !== null) 
     {
         var detalle = pago[pago.length -1]
-    }   
-
+    }
+    
     return (
         <div>
             <p>¡GRACIAS POR SU COMPRA!</p>

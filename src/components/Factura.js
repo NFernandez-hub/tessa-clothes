@@ -8,9 +8,7 @@ export const Factura = (props) => {
     var date = new Date();
     var day = date.getDate();       // yields date
     var month = date.getMonth() + 1;    // yields month (add one as '.getMonth()' is zero indexed)
-    var year = date.getFullYear();  // yields year
-
-    
+    var year = date.getFullYear();  // yields year    
 
     //After this construct a string with the above results as below
     var time = day + "/" + month + "/" + year;
@@ -20,10 +18,10 @@ export const Factura = (props) => {
             <Form >
                 <div className="border">
 
-                <FormGroup className="align">
-                    <Form.Label className="labelInvoice align" >Numero: </Form.Label>
-                    <Form.Label className="label2Invoice"> { } </Form.Label>
-                </FormGroup>
+                    <FormGroup className="align">
+                        <Form.Label className="labelInvoice align" >Numero: </Form.Label>
+                        <Form.Label className="label2Invoice"> { } </Form.Label>
+                    </FormGroup>
                 </div>
 
 
@@ -41,44 +39,43 @@ export const Factura = (props) => {
                     <Form.Label className="labelInvoice" >Total: </Form.Label>
                     <Form.Label className="label2Invoice"> { } </Form.Label>
                 </FormGroup>
-                
 
             </Form>
         )
     } else {
-        
+
         return (
 
             <Form className="justify">
-             <div className="border ">
+                <div className="border ">
 
-                <FormGroup className="justify" >
-                    <Form.Label className="labelInvoice  align">Numero: </Form.Label>
-                    <Form.Label className="label2Invoice align "> {factura.number} </Form.Label>
-                </FormGroup>
-             </div>
-             <div className="border ">
+                    <FormGroup className="justify" >
+                        <Form.Label className="labelInvoice  align">Numero: </Form.Label>
+                        <Form.Label className="label2Invoice align "> {factura.number} </Form.Label>
+                    </FormGroup>
+                </div>
+                <div className="border ">
 
-                <FormGroup className="justify">
-                    <Form.Label className="labelInvoice align ">Fecha: </Form.Label>
-                    <Form.Label className="label2Invoice align " > {time} </Form.Label>
-                </FormGroup>
+                    <FormGroup className="justify">
+                        <Form.Label className="labelInvoice align ">Fecha: </Form.Label>
+                        <Form.Label className="label2Invoice align " > {time} </Form.Label>
+                    </FormGroup>
                 </div>
 
                 <div className="border">
 
-                <FormGroup className="justify" >
-                    <Form.Label className="labelInvoice align " >SubTotal: </Form.Label>
-                    <Form.Label className="label2Invoice align" >${factura.subTotal} </Form.Label>
-                </FormGroup>
+                    <FormGroup className="justify" >
+                        <Form.Label className="labelInvoice align " >SubTotal: </Form.Label>
+                        <Form.Label className="label2Invoice align" >${factura.subTotal} </Form.Label>
+                    </FormGroup>
                 </div>
 
                 <div className="border">
 
-                <FormGroup className="justify" >
-                    <Form.Label className="labelInvoice align">Total: </Form.Label>
-                    <Form.Label className="label2Invoice align" >${factura.total} </Form.Label>
-                </FormGroup>
+                    <FormGroup className="justify" >
+                        <Form.Label className="labelInvoice align">Total: </Form.Label>
+                        <Form.Label className="label2Invoice align" >${factura.total} </Form.Label>
+                    </FormGroup>
                 </div>
 
             </Form>

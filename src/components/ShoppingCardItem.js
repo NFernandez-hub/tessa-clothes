@@ -4,6 +4,7 @@ export const ShoppingCardItem = (props) => {
     const { product, setTotalAmount, totalAmount } = props;
     const [productQt, setProductQt] = useState(product.qty);
 
+    
 
     return (
         <div className="row border-top border-bottom">

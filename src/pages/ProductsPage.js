@@ -8,7 +8,6 @@ export const ProductsPage = (props) => {
 
     const { cart, setCart } = props;
 
-
     return (
         <div className="App">
             <Image className="imagen" src={foto} fluid />

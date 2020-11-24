@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { ShoppingCardItem } from './ShoppingCardItem'
 import Modal from 'react-modal';
 
-
 import '../scss/carrito.css'
 import { PagoModal } from './PagoModal';
 
@@ -36,11 +35,38 @@ export const CartCard = (props) => {
         var total = 0;
 
         cart.forEach(item => {
-
             total += (item.price1 * item.qty);
         });
 
         setTotalAmount(total);
+    }
+
+    const controllerS = 'Product';
+    const requestS = 'update';
+
+
+    const setStock = async () => {
+
+        cart.forEach(async item => {
+
+            var response = await Trequest(controllerS, requestS, {
+                
+                id: item.id,
+                erasedState: item.erasedState,
+                code: item.code,
+                name: item.name,
+                description: item.description,
+                discountStock: item.discountStock,
+                discontinued: item.discontinued,
+                showBrand: item.showBrand,
+                slow: item.slow,
+                price1: item.price1,
+                brandId: item.brandId,
+                categoryId: item.categoryId,
+                stock: item.stock - item.qty
+            })
+
+        })
     }
 
     //GET de la factura
@@ -67,6 +93,9 @@ export const CartCard = (props) => {
     const request = 'create';
 
     const handleFinisBuy = async () => {
+
+        setStock();
+        
         //POST de la facutra
         var precioFinal = parseFloat(totalAmount, 10);
 
@@ -79,10 +108,9 @@ export const CartCard = (props) => {
             wayToPay: 1,
             userId: 1
         });
-        
+
         setOpen(true);
     }
-
 
     return (
         <div className='carrito-body'>
@@ -94,11 +122,11 @@ export const CartCard = (props) => {
                                 <div className="col">
                                     <h4><b>Shopping Cart</b></h4>
                                 </div>
-                                {/* <div className="col align-self-center text-right text-muted">3 items</div> */}
                             </div>
                         </div>
                         {cart?.map((item, index) =>
-                            <ShoppingCardItem product={item} key={index} setTotalAmount={setTotalAmount} totalAmount={totalAmount} />
+                            <ShoppingCardItem product={item} key={index} setTotalAmount={setTotalAmount}
+                                totalAmount={totalAmount} />
                         )}
 
                     </div>
@@ -106,17 +134,6 @@ export const CartCard = (props) => {
                         <div>
                             <h5><b>Factura</b></h5>
                         </div>
-                        {/* <hr /> */}
-                        {/* <div className="row">
-                            <div className="col hola">ITEMS 3</div>
-                            <div className="col text-right">&euro; 132.00</div>
-                        </div> */}
-                        <form>
-                            {/* <p>SHIPPING</p> <select>
-                                <option className="text-muted">Standard-Delivery- &euro;5.00</option>
-                            </select>
-                            <p>GIVE CODE</p> <input id="code" placeholder="Enter your code" /> */}
-                        </form>
                         <div className="row chau">
                             <div className="col">TOTAL PRICE</div>
                             <div className="col text-right">${totalAmount}</div>
@@ -124,10 +141,10 @@ export const CartCard = (props) => {
                         <hr />
                         <div className="row align">
 
-                        <div className="col align">
-                        <button className="btn btn1 right" onClick={handleFinisBuy}>CONFIRMAR</button>
-                    </div>
-                    </div>
+                            <div className="col align">
+                                <button className="btn btn1 right" onClick={handleFinisBuy}>CONFIRMAR</button>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

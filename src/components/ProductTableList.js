@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button as Spinner, Table } from 'react-bootstrap'
+import { Button as Spinner, Container, Table } from 'react-bootstrap'
 import { GetAll, } from '../api/apiRoutes';
 import Modal from 'react-modal';
 import ProductFrom from './ProductFrom';
@@ -63,28 +63,54 @@ export default function ProductTableList() {
         setSingleProduct(a)
     }
 
-    if (loading) {
-        return <Spinner animation="border" variant="secondary" />
-    }
-
     return (
+        <Container>
+            <br></br>
+            <Table responsive striped bordered hover>
+                <thead>
+                    <tr>
+                        <th className="align"> <span className="btn btn1 row btncont " onClick={() => setOpen(true)}> <i className="fas fa-user-plus"></i> </span>
 
-        <Table striped bordered hover>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Codigo</th>
-                    <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
+                        </th>
+                        <th></th>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
 
-
-                    <td className="btn btn1 row btncont" onClick={() => setOpen(true)}>
-                        <i className="fas fa-user-plus"></i>
-                    </td>
+                        <Modal
+                            isOpen={open}
+                            //   onAfterOpen={afterOpenModal}
+                            onRequestClose={closeModal}
+                            style={customStyles}
+                            closeTimeoutMS={200}
+                            overlayClassName="modal-fondo"
+                            contentLabel="Example Modal"
+                        >
+                            <ProductFrom />
+                        </Modal>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        productList?.map((item, index) => {
+                            return (
+                                <tr key={index}>
+                                    <th className="align"> <span className="btn btn1 row btncont" onClick={() => setOpenWithProduct(item)}><i className="far fa-edit"></i> </span>  </th>
+                                    <th className="align">  <span className="btn btn1 row btncont" onClick={() => setOpenDelete(item)} ><i className="far fa-trash-alt"></i> </span> </th>
+                                    <th>{item.code}</th>
+                                    <th>{item.name}</th>
+                                    <th>{item.description}</th>
+                                    <th>{item.price1}</th>
+                                    <th>{item.stock}</th>
+                                </tr>
+                            )
+                        })
+                    }
 
                     <Modal
-                        isOpen={open}
+                        isOpen={openD}
                         //   onAfterOpen={afterOpenModal}
                         onRequestClose={closeModal}
                         style={customStyles}
@@ -92,56 +118,25 @@ export default function ProductTableList() {
                         overlayClassName="modal-fondo"
                         contentLabel="Example Modal"
                     >
-                        <ProductFrom />
+                        <ProductDelete product={singleProduct} />
                     </Modal>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    productList?.map((item, index) => {
-                        return (
-                            <tr key={index}>
-                                <th>#</th>
-                                <th>{item.code}</th>
-                                <th>{item.name}</th>
-                                <th>{item.description}</th>
-                                <th>{item.price1}</th>
 
+                    <Modal
+                        isOpen={openM}
+                        //   onAfterOpen={afterOpenModal}
+                        onRequestClose={closeModal}
+                        style={customStyles}
+                        closeTimeoutMS={200}
+                        overlayClassName="modal-fondo"
+                        contentLabel="Example Modal"
+                    >
+                        <ProductUpdate product={singleProduct} />
+                    </Modal>
 
-                                <td className="btn btn1 row btncont" onClick={() => setOpenWithProduct(item)}> Modificar </td>
-                                <td className="btn btn1 row btncont" onClick={() => setOpenDelete(item)}> Eliminar </td>
-                            </tr>
-                        )
-                    })
-                }
+                </tbody>
 
-                <Modal
-                    isOpen={openD}
-                    //   onAfterOpen={afterOpenModal}
-                    onRequestClose={closeModal}
-                    style={customStyles}
-                    closeTimeoutMS={200}
-                    overlayClassName="modal-fondo"
-                    contentLabel="Example Modal"
-                >
-                    <ProductDelete product={singleProduct} />
-                </Modal>
-
-                <Modal
-                    isOpen={openM}
-                    //   onAfterOpen={afterOpenModal}
-                    onRequestClose={closeModal}
-                    style={customStyles}
-                    closeTimeoutMS={200}
-                    overlayClassName="modal-fondo"
-                    contentLabel="Example Modal"
-                >
-                    <ProductUpdate product={singleProduct} />
-                </Modal>
-
-            </tbody>
-
-        </Table>
+            </Table>
+        </Container>
 
 
     )

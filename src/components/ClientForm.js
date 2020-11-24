@@ -24,9 +24,7 @@ export default function ClientForm() {
 
     const { name, lastName, dni, cuil, cellPhone, email, birthDate } = values;
 
-    const handleClick = async (e) => {
-
-        e.preventDefault();
+    const handleClick = async () => {
 
         var parseDni = parseInt(dni, 10);
         var parseCuil = parseInt(cuil, 10);
@@ -110,7 +108,7 @@ export default function ClientForm() {
                 </div>
             </div>
 
-            <button className="btn btn1" onClick={(e) => handleClick(e)}>
+            <button className="btn btn1" onClick={handleClick}>
                 Crear Cliente
             </button>
 

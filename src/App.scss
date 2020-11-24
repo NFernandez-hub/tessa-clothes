@@ -169,9 +169,78 @@ body{
   margin-left: 10px;
 }
 
-//////////////////////////////////////////////////////header///////////////////////////////////////////////////
+.subNavBar{
+  display: flex;
+  width: 100px;
 
+}
+//////////////////////////////////////////////////////header///////////////////////////////////////////////////
 .header {
+  padding-bottom: 0px;
+  height: auto;
+  width: 100%;
+
+
+/*   background: rgb(195,143,255);
+  background: linear-gradient(90deg, rgba(195,143,255,1) 37%, rgba(90,167,228,1) 100%); */
+  background: rgb(74,1,126);
+  background: linear-gradient(90deg, rgba(74,1,126,1) 0%, rgba(118,100,162,1) 57%, rgba(174,193,191,1) 100%);
+  .logo-container {
+      height: 100%;
+      width: 40vh;
+      padding: 10px;
+
+      display: inline-block;
+      font-weight: 600;
+      text-align: left;
+      margin-bottom: 20px;
+  }
+  .options {
+     width: 100%;
+      margin-bottom: 10px;
+
+      height: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      .option {
+          padding: 10px 15px;
+          color: white;
+          font-size: 16.8px;
+          letter-spacing: 1px;
+          text-align: center;
+          text-transform: uppercase;
+          line-height: 35px;
+          gap: normal;
+          border-radius:10px;
+          outline:none !important;      }
+  }
+  .option:hover {
+    transform: scale(1.05);
+}
+.optionsIcon {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .option {
+        padding: 10px 15px;
+        color: white;
+        font-size: 16.8px;
+        letter-spacing: 1px;
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 35px;
+        gap: normal;
+        text-decoration: none;
+    }
+}
+}
+
+
+
+.header2 {
   padding-bottom: 0px;
   height: 80px;
   width: 100%;
@@ -279,7 +348,7 @@ body{
 //homepage
 
 .imagen{
-  width:auto;
+  width:120%;
   margin-bottom: 2%;
   padding-left: 0%;
   padding: 0%;

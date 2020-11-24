@@ -1,25 +1,51 @@
 import React from 'react';
+import {toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Product = (props) => {
-    
+
     const { product, cart, setCart } = props;
 
     product.qty = 1;
 
     const handleAddToCart = (e) => {
 
-        if (cart.length === 0) {
-            setCart([...cart, product]);
-        } else {
+        if (product.stock >= 1) {
 
-            var find = cart.find(x => x.id === product.id)
+            toast('El articulo fue añadido al carrito.', {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
 
-            if (find === undefined) {
+            if (cart.length === 0) {
                 setCart([...cart, product]);
             } else {
-                find.qty += 1;
-            }
 
+                var find = cart.find(x => x.id === product.id)
+
+                if (find === undefined) {
+                    setCart([...cart, product]);
+                } else {
+                    find.qty += 1;
+                }
+            }
+        }
+        else{
+            toast('El producto no tiene stock.', {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     }
 
